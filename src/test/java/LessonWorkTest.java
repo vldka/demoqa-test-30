@@ -1,17 +1,13 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class LessonWorkTest {
     @BeforeAll
@@ -26,37 +22,39 @@ public class LessonWorkTest {
         WebDriverRunner.closeWindow();
     }
 
+    String gender;
     String state;
     String city;
+
 
     @Test
     void readTestForm() {
         //Действия
         open("/automation-practice-form");
-        $("[id = firstName]").setValue("Vlad");
-        $("[id = lastName]").setValue("kashkarov");
-        $("[id = userEmail]").setValue("test@yandex.ru");
-        $("[id = userNumber]").setValue("8999111111");
-        $("[id = genterWrapper]").find(".custom-control-label").click();
-        $("[id = dateOfBirthInput]").sendKeys(Keys.CONTROL + "A");
-        $("[id = dateOfBirthInput]").sendKeys("6.12.1996");
-        $("[id = dateOfBirthInput]").pressEnter();
-        $("[id = subjectsInput]").setValue("Math");
-        $("[id = react-select-2-option-0]").click();
-        $("[id = subjectsInput]").setValue("English");
-        $("[id = react-select-2-option-0]").click();
-        $("[id = hobbiesWrapper]").find("[for=hobbies-checkbox-1]").click();
-        $("[id = hobbiesWrapper]").find("[for=hobbies-checkbox-2]").click();
-        $("[id = hobbiesWrapper]").find("[for=hobbies-checkbox-3]").click();
-        $("[id = uploadPicture]").uploadFromClasspath("tst.jpg");
-        $("[id = currentAddress]").setValue("Krasnodar st. Severnaya 200 h.1");
-        $("[id = state]").click();
-        state = $("[id = react-select-3-option-0]").getText();
-        $("[id = react-select-3-option-0]").click();
-        $("[id = city]").click();
-        city = $("[id = react-select-4-option-0]").getText();
-        $("[id = react-select-4-option-0]").click();
-        $("[id = submit]").click();
+        $("#firstName").setValue("Vlad");
+        $("#lastName").setValue("kashkarov");
+        $("#userEmail").setValue("test@yandex.ru");
+        $("#userNumber").setValue("8999111111");
+        $("#genterWrapper").find(".custom-control-label").click();
+        $("#dateOfBirthInput").sendKeys(Keys.CONTROL + "A");
+        $("#dateOfBirthInput").sendKeys("6.12.1996");
+        $("#dateOfBirthInput").pressEnter();
+        $("#subjectsInput").setValue("Math");
+        $("#react-select-2-option-0").click();
+        $("#subjectsInput").setValue("English");
+        $("#react-select-2-option-0").click();
+        $("#hobbiesWrapper").find("[for=hobbies-checkbox-1]").click();
+        $("#hobbiesWrapper").find("[for=hobbies-checkbox-2]").click();
+        $("#hobbiesWrapper").find("[for=hobbies-checkbox-3]").click();
+        $("#uploadPicture").uploadFromClasspath("tst.jpg");
+        $("#currentAddress").setValue("Krasnodar st. Severnaya 200 h.1");
+        $("#state").click();
+        state = $("#react-select-3-option-0").getText();
+        $("#react-select-3-option-0").click();
+        $("#city").click();
+        city = $("#react-select-4-option-0").getText();
+        $("#react-select-4-option-0").click();
+        $("#submit").click();
 
         // Проверки
         $(".table-responsive").shouldHave(text("Vlad kashkarov"));
