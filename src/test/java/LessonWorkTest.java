@@ -4,7 +4,11 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -21,6 +25,9 @@ public class LessonWorkTest {
     static void closeWindow() {
         WebDriverRunner.closeWindow();
     }
+
+    String state;
+    String city;
 
     @Test
     void readTestForm() {
@@ -44,8 +51,10 @@ public class LessonWorkTest {
         $("[id = uploadPicture]").uploadFromClasspath("tst.jpg");
         $("[id = currentAddress]").setValue("Krasnodar st. Severnaya 200 h.1");
         $("[id = state]").click();
+        state = $("[id = react-select-3-option-0]").getText();
         $("[id = react-select-3-option-0]").click();
         $("[id = city]").click();
+        city = $("[id = react-select-4-option-0]").getText();
         $("[id = react-select-4-option-0]").click();
         $("[id = submit]").click();
 
@@ -59,7 +68,7 @@ public class LessonWorkTest {
         $(".table-responsive").shouldHave(text("Sports, Reading, Music"));
         $(".table-responsive").shouldHave(text("tst.jpg"));
         $(".table-responsive").shouldHave(text("Krasnodar st. Severnaya 200 h.1"));
-        $(".table-responsive").shouldHave(text("NCR Delhi"));
+        $(".table-responsive").shouldHave(text(state + " " + city));
     }
 
 }
