@@ -1,4 +1,8 @@
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -8,9 +12,20 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LessonWork {
+    @BeforeAll
+    static void openPage() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
+    }
+
+    @AfterAll
+    static void closeWindow() {
+        WebDriverRunner.closeWindow();
+    }
+
     @Test
     void readTestForm() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("[id = firstName]").setValue("Vlad");
         $("[id = lastName]").setValue("kashkarov");
         $("[id = userEmail]").setValue("test@yandex.ru");
