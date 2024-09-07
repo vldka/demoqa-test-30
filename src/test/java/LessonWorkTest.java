@@ -21,8 +21,6 @@ public class LessonWorkTest {
     static void closeWindow() {
         WebDriverRunner.closeWindow();
     }
-
-    String gender;
     String state;
     String city;
 
