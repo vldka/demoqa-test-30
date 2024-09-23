@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
@@ -6,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LessonWorkTest {
     @BeforeAll
@@ -21,6 +22,7 @@ public class LessonWorkTest {
     static void closeWindow() {
         WebDriverRunner.closeWindow();
     }
+
     String state;
     String city;
 
@@ -30,7 +32,7 @@ public class LessonWorkTest {
         //Действия
         open("/automation-practice-form");
         $("#firstName").setValue("Vlad");
-        $("#lastName").setValue("kashkarov");
+        $("#lastName").setValue("Kashkarov");
         $("#userEmail").setValue("test@yandex.ru");
         $("#userNumber").setValue("8999111111");
         $("#genterWrapper").find(".custom-control-label").click();
