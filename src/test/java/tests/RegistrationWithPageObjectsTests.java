@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import static utils.RandomUtils.getMonthBrithday;
-import static utils.RandomUtils.getRandomGender;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
@@ -22,17 +21,21 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var firstName = rufaker.name().firstName();
         var lastName = rufaker.name().lastName();
         var email = enfaker.internet().emailAddress();
-        var gender = getRandomGender();
+        var gender = enfaker.options().option("Male", "Female", "Other");
         var phone = rufaker.phoneNumber().subscriberNumber(10);
         var dayOfBirth = new SimpleDateFormat("d").format(enfaker.date().birthday());
         var monthOfBirth = getMonthBrithday();
         var yearOfBirth = new SimpleDateFormat("yyyy").format(enfaker.date().birthday());
-        var subjects = new String[]{"Maths", "English"};
-        var hobbies = new String[]{"Sports", "Reading", "Music"};
+        var subjects = enfaker.options().option("Maths", "English");
+        var hobbies = enfaker.options().option("Sports", "Reading", "Music");
         var fileName = "tst.jpg";
         var currentAddress = rufaker.address().fullAddress();
-        var state = "NCR";
-        var city = "Delhi";
+        var state = enfaker.options().option("NCR", "Haryana");
+        var city = switch (state) {
+            case "NCR" -> enfaker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Haryana" -> enfaker.options().option("Karnal", "Panipat");
+            default -> "";
+        };
         //Действия по заполнению
         registrationPage
                 .openPage()
@@ -56,8 +59,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(gender)
                 .checkResults(phone)
                 .checkResults(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
-                .checkResults(subjects[0] + ", " + subjects[1])
-                .checkResults(hobbies[0] + ", " + hobbies[1] + ", " + hobbies[2])
+                .checkResults(subjects)
+                .checkResults(hobbies)
                 .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
