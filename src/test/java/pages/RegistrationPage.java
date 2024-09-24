@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    private SelenideElement
+    private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
@@ -82,17 +82,17 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubjects(String[] values) {
-        for (String value : values) {
-            subjectsInput.setValue(value).pressEnter();
-        }
+    public RegistrationPage setSubjects(String values) {
+
+        subjectsInput.setValue(values).pressEnter();
+
         return this;
     }
 
-    public RegistrationPage setHobbies(String[] values) {
-        for (String value : values) {
-            hobbiesInput.$(byText(value)).click();
-        }
+    public RegistrationPage setHobbies(String values) {
+
+        hobbiesInput.$(byText(values)).click();
+
         return this;
     }
 
