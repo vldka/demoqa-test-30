@@ -11,26 +11,10 @@ public class RandomUtils {
     public static void main(String[] args) {
     }
 
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
-
-    public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-
-        return getRandomItemFromArray(genders);
-    }
-
-    public static String getRandomItemFromArray(String[] array) {
-        int index = getRandomInt(0, array.length - 1);
-
-        return array[index];
-    }
-
     public static String getMonthBrithday() {
-
+        //перевод даты в LocalDate
         var month = enfaker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonth().toString();
-
+        // Верхний регистр только для первого элемента
         return month.charAt(0) + month.substring(1).toLowerCase();
     }
 }
