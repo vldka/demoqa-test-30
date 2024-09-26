@@ -5,29 +5,30 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     private final RandomUtils randomUtils = new RandomUtils();
+
     @Test
     void successfulRegistrationTest() {
-        Faker enfaker = new Faker(new Locale("en-US"));
         // Тестовые данные
-        var firstName = randomUtils.getFirsttName();
-        var lastName = randomUtils.getLastName();
-        var email = randomUtils.getEmail();
-        var gender = randomUtils.getGender();
-        var phone = randomUtils.getPhone();
+        var firstName = randomUtils.firstName;
+        var lastName = randomUtils.lastName;
+        var email = randomUtils.email;
+        var gender = randomUtils.gender;
+        var phone = randomUtils.phone;
         var dayOfBirth = randomUtils.getDayBrithday();
-        var monthOfBirth = randomUtils.getMonthBrithday();
-        var yearOfBirth = randomUtils.getYearBrithday();
-        var subjects = randomUtils.getSubjects();
-        var hobbies = randomUtils.getHobbies();
+        var monthOfBirth = randomUtils.monthBrithday;
+        var yearOfBirth = randomUtils.yearBrithday;
+        var subjects = randomUtils.subjects;
+        var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        var currentAddress = randomUtils.getAddress();
-        var state = randomUtils.getState();
+        var currentAddress = randomUtils.address;
+        var state = randomUtils.state;
         var city = randomUtils.getCity(state);
         //Действия по заполнению
         registrationPage
