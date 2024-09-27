@@ -3,9 +3,7 @@ package utils;
 import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
-import java.time.ZoneId;
 import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
     Faker enfaker = new Faker();

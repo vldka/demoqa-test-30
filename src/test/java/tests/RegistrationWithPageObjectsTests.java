@@ -1,12 +1,8 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
