@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,12 +11,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 import pages.RegistrationPage;
 import utils.RandomUtils;
 
+@DisplayName("Проверки на Practice Form")
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     private final RandomUtils randomUtils = new RandomUtils();
 
     @Test
+    @DisplayName("Проверка заполнения формы 'Practice Form'")
     void successfulRegistrationTest() {
         // Тестовые данные
         var firstName = randomUtils.firstName;
