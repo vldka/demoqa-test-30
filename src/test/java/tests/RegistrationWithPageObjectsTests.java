@@ -12,6 +12,7 @@ import pages.RegistrationPage;
 import utils.RandomUtils;
 
 @DisplayName("Проверки на Practice Form")
+@Tag("simple")
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
