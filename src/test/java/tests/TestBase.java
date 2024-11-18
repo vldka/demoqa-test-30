@@ -18,6 +18,9 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
         Selenide.closeWebDriver();
     }
 
