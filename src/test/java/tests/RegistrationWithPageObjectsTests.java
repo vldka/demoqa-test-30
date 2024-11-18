@@ -110,7 +110,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
-        Selenide.sleep(10000);
     }
 
     @CsvSource(value = {
