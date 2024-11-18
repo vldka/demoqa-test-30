@@ -67,7 +67,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @ValueSource(strings = {"NCR", "Haryana"})
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей по Штату {0}")
-    void successfulCheckStateValue(String state) {
+    void successfulCheckStateValueTest(String state) {
         // Тестовые данные
         var firstName = randomUtils.firstName;
         var lastName = randomUtils.lastName;
@@ -118,7 +118,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
             "Haryana| Karnal"},delimiter = '|')
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей по Штату {0} и городу {1}")
-    void successfulCheckStateCityCsv(String state,String city) {
+    void successfulCheckStateCityCsvTest(String state,String city) {
         // Тестовые данные
         var firstName = randomUtils.firstName;
         var lastName = randomUtils.lastName;
@@ -165,7 +165,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @CsvFileSource(resources = "/test_data/successfulCheckStateCityCsvFile.csv",delimiter = '|')
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей из csv файла по Штату {0} и городу {1}")
-    void successfulCheckStateCityCsvFile(String state,String city) {
+    void successfulCheckStateCityCsvFileTest(String state,String city) {
         // Тестовые данные
         var firstName = randomUtils.firstName;
         var lastName = randomUtils.lastName;
@@ -209,6 +209,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(state + " " + city);
     }
     @Test
+    @DisplayName("Негативная проверка обязательных полей")
     void negativeRegistrationTest() {
         registrationPage
                 //Действия

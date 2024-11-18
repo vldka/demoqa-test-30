@@ -144,6 +144,7 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Проверка валидации")
     public RegistrationPage negativeResults() {
         userFormInput.shouldHave(attribute("class", "was-validated"));
         return this;
