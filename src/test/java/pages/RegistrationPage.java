@@ -140,7 +140,7 @@ public class RegistrationPage {
 
     public RegistrationPage clickButton() {
 
-        submitInput.click();
+        submitInput.scrollTo().click();
 
         return this;
     }

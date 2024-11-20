@@ -12,6 +12,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import pages.RegistrationPage;
 import utils.RandomUtils;
 
+import java.util.Objects;
+
 @DisplayName("Проверки на Practice Form")
 @Tag("main")
 public class RegistrationWithPageObjectsTests extends TestBase {
@@ -34,7 +36,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         var state = randomUtils.state;
         var city = randomUtils.getCity(state);
@@ -64,9 +65,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResults(subjects)
                 .checkResults(hobbies)
-                .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
+        if (!Configuration.browser.equals("firefox")) registrationPage.checkResults(fileName);
     }
 
     @ValueSource(strings = {"NCR", "Haryana"})
@@ -85,7 +86,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         var city = randomUtils.getCity(state);
         //Действия по заполнению
@@ -114,9 +114,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResults(subjects)
                 .checkResults(hobbies)
-                .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
+        if (!Configuration.browser.equals("firefox")) registrationPage.checkResults(fileName);
     }
 
     @CsvSource(value = {
@@ -137,7 +137,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
@@ -165,9 +164,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResults(subjects)
                 .checkResults(hobbies)
-                .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
+        if (!Configuration.browser.equals("firefox")) registrationPage.checkResults(fileName);
     }
 
     @CsvFileSource(resources = "/test_data/successfulCheckStateCityCsvFile.csv", delimiter = '|')
@@ -186,7 +185,6 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
@@ -214,9 +212,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResults(subjects)
                 .checkResults(hobbies)
-                .checkResults(fileName)
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
+        if (!Configuration.browser.equals("firefox")) registrationPage.checkResults(fileName);
     }
 
     @Test
