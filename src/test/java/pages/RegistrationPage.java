@@ -93,7 +93,7 @@ public class RegistrationPage {
     @Step("Выбор Предмета")
     public RegistrationPage setSubjects(String values) {
 
-        subjectsInput.setValue(values).pressEnter();
+        subjectsInput.setValue(values).scrollTo().pressEnter();
 
         return this;
     }
@@ -101,7 +101,7 @@ public class RegistrationPage {
     @Step("Выбор Хобби")
     public RegistrationPage setHobbies(String values) {
 
-        hobbiesInput.$(byText(values)).click();
+        hobbiesInput.$(byText(values)).scrollTo().click();
 
         return this;
     }
