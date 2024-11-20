@@ -34,7 +34,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName=null;
+        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         var state = randomUtils.state;
         var city = randomUtils.getCity(state);
@@ -85,7 +85,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName=null;
+        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         var city = randomUtils.getCity(state);
         //Действия по заполнению
@@ -137,7 +137,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName=null;
+        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
@@ -186,7 +186,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
-        if (Configuration.browser.equals("firefox")) fileName=null;
+        if (Configuration.browser.equals("firefox")) fileName="";
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
