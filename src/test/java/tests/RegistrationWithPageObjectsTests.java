@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -33,6 +34,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
+        if (Configuration.browser.equals("firefox")) fileName=null;
         var currentAddress = randomUtils.address;
         var state = randomUtils.state;
         var city = randomUtils.getCity(state);
@@ -66,6 +68,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
     }
+
     @ValueSource(strings = {"NCR", "Haryana"})
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей по Штату {0}")
@@ -82,6 +85,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
+        if (Configuration.browser.equals("firefox")) fileName=null;
         var currentAddress = randomUtils.address;
         var city = randomUtils.getCity(state);
         //Действия по заполнению
@@ -117,10 +121,10 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     @CsvSource(value = {
             "NCR| Delhi",
-            "Haryana| Karnal"},delimiter = '|')
+            "Haryana| Karnal"}, delimiter = '|')
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей по Штату {0} и городу {1}")
-    void successfulCheckStateCityCsvTest(String state,String city) {
+    void successfulCheckStateCityCsvTest(String state, String city) {
         // Тестовые данные
         var firstName = randomUtils.firstName;
         var lastName = randomUtils.lastName;
@@ -133,6 +137,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
+        if (Configuration.browser.equals("firefox")) fileName=null;
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
@@ -165,10 +170,10 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(state + " " + city);
     }
 
-    @CsvFileSource(resources = "/test_data/successfulCheckStateCityCsvFile.csv",delimiter = '|')
+    @CsvFileSource(resources = "/test_data/successfulCheckStateCityCsvFile.csv", delimiter = '|')
     @Tag("fieldCheck")
     @ParameterizedTest(name = "Проверка наполнения полей из csv файла по Штату {0} и городу {1}")
-    void successfulCheckStateCityCsvFileTest(String state,String city) {
+    void successfulCheckStateCityCsvFileTest(String state, String city) {
         // Тестовые данные
         var firstName = randomUtils.firstName;
         var lastName = randomUtils.lastName;
@@ -181,6 +186,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var subjects = randomUtils.subjects;
         var hobbies = randomUtils.hobbies;
         var fileName = "tst.jpg";
+        if (Configuration.browser.equals("firefox")) fileName=null;
         var currentAddress = randomUtils.address;
         //Действия по заполнению
         registrationPage
@@ -212,6 +218,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResults(currentAddress)
                 .checkResults(state + " " + city);
     }
+
     @Test
     @DisplayName("Негативная проверка обязательных полей")
     void negativeRegistrationTest() {
