@@ -27,7 +27,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var email = randomUtils.email;
         var gender = randomUtils.gender;
         var phone = randomUtils.phone;
-        var dayOfBirth = randomUtils.getDayBrithday();
+        var dayOfBirth = randomUtils.day;
         var monthOfBirth = randomUtils.monthBrithday;
         var yearOfBirth = randomUtils.yearBrithday;
         var subjects = randomUtils.subjects;
@@ -39,6 +39,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         //Действия по заполнению
         registrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
@@ -75,7 +76,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var email = randomUtils.email;
         var gender = randomUtils.gender;
         var phone = randomUtils.phone;
-        var dayOfBirth = randomUtils.getDayBrithday();
+        var dayOfBirth = randomUtils.day;
         var monthOfBirth = randomUtils.monthBrithday;
         var yearOfBirth = randomUtils.yearBrithday;
         var subjects = randomUtils.subjects;
@@ -86,6 +87,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         //Действия по заполнению
         registrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
@@ -125,7 +127,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var email = randomUtils.email;
         var gender = randomUtils.gender;
         var phone = randomUtils.phone;
-        var dayOfBirth = randomUtils.getDayBrithday();
+        var dayOfBirth = randomUtils.day;
         var monthOfBirth = randomUtils.monthBrithday;
         var yearOfBirth = randomUtils.yearBrithday;
         var subjects = randomUtils.subjects;
@@ -135,6 +137,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         //Действия по заполнению
         registrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
@@ -172,7 +175,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         var email = randomUtils.email;
         var gender = randomUtils.gender;
         var phone = randomUtils.phone;
-        var dayOfBirth = randomUtils.getDayBrithday();
+        var dayOfBirth = randomUtils.day;
         var monthOfBirth = randomUtils.monthBrithday;
         var yearOfBirth = randomUtils.yearBrithday;
         var subjects = randomUtils.subjects;
@@ -182,6 +185,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
         //Действия по заполнению
         registrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)

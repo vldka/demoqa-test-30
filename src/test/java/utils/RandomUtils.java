@@ -21,6 +21,7 @@ public class RandomUtils {
     public String state = enfaker.options().option("NCR", "Haryana");
     public String subjects = enfaker.options().option("Maths", "English");
     public String hobbies = enfaker.options().option("Sports", "Reading", "Music");
+    public String day = String.format("%02d", rufaker.number().numberBetween(1, 28));
 
     public static void main(String[] args) {
     }

@@ -40,6 +40,14 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Удаление банеров")
+    public RegistrationPage removeBanner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
+        return this;
+    }
+
     @Step("Заполненение Имени")
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
@@ -116,7 +124,7 @@ public class RegistrationPage {
     @Step("Выбор штата")
     public RegistrationPage setState(String value) {
 
-        stateInput.click();
+        stateInput.scrollTo().click();
         stateCityWrapperInput.$(byText(value)).click();
 
         return this;
@@ -125,7 +133,7 @@ public class RegistrationPage {
     @Step("Выбор города")
     public RegistrationPage setCity(String value) {
 
-        cityInput.click();
+        cityInput.scrollTo().click();
         stateCityWrapperInput.$(byText(value)).click();
 
         return this;
